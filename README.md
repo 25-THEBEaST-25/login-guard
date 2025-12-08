@@ -43,3 +43,35 @@ Make sure Python is installed, then run:
 
 ```bash
 python login_guard.py
+
+---
+
+## 🧠 How It Works (Internals Explained)
+
+1. The script generates **random IP addresses and usernames** to simulate attackers.
+2. Every login attempt is checked against a **failed-attempt counter**.
+3. If an IP fails more than **5 times**, it is:
+   - Instantly **blocked**
+   - Written to `blocked_ips.txt`
+4. Every login attempt (success or failure) is logged with:
+   - Timestamp
+   - Username
+   - IP Address
+   - Status (SUCCESS / FAILED / BLOCKED)
+5. Real-time alerts are printed in the terminal for quick monitoring.
+
+This mimics how real-world systems detect and respond to brute-force attacks.
+
+---
+
+## ⚠️ Disclaimer
+
+This project is built **strictly for educational and ethical cybersecurity learning purposes**.  
+Do NOT use this tool for illegal or unauthorized activity.
+
+---
+
+## 👨‍💻 Author
+
+Built with 💚 by Aryan  
+Daily Cybersecurity Practice Project
