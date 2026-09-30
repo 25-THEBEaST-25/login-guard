@@ -1,5 +1,7 @@
 # Login Guard — Brute-Force Login Simulator
 
+[![CI](https://github.com/25-THEBEaST-25/login-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/25-THEBEaST-25/login-guard/actions/workflows/ci.yml)
+
 Login Guard is a small Python command-line tool that simulates brute-force
 login attempts against a fake system. It tracks failed login attempts per
 source IP, automatically blocks any IP once it crosses a configurable
@@ -29,7 +31,7 @@ a self-contained simulator for demonstrating and testing lockout logic.
 
 - Python 3.8+
 - [pytest](https://pypi.org/project/pytest/) (only needed to run the test
-  suite): `pip install pytest`
+  suite): `pip install -r requirements-dev.txt`
 
 ---
 

@@ -13,6 +13,7 @@ Status: **Complete**
 | `README.md`: what it does, how to run, example output, use cases | Done |
 | `.gitignore` | Done |
 | No hardcoded credentials or debug prints | Verified — the tool simulates fake credentials against no real system; all `print()` calls are intentional CLI output, not leftover debugging |
+| CI (GitHub Actions) running the test suite on every push/PR | Done — `.github/workflows/ci.yml`, matrix over Python 3.8/3.11/3.12 |
 
 ## Verification performed
 
@@ -20,5 +21,6 @@ Status: **Complete**
 - Ran `login_guard.py` directly from the CLI (`--attempts 10 --threshold 3 --seed 1`) and confirmed lockout, block, and log-output behavior matches the printed output.
 - Confirmed invalid input (bad IP, negative attempts, non-numeric threshold) is rejected with a clear error and non-zero exit code, both via the CLI and via dedicated `test_main_rejects_*` tests.
 - Reviewed `login_guard.py` for hardcoded credentials, real IPs, and debug prints — none found; all output is intentional CLI reporting.
+- Added `.github/workflows/ci.yml` so the test suite actually runs on GitHub (previously it only ran locally); confirmed the workflow syntax against `actions/checkout@v4` and `actions/setup-python@v5`, and ran the exact same steps locally (`python -m py_compile login_guard.py`, `python -m pytest tests/ -v`) — 21/21 passed.
 
 No further action is required for this repo's production-readiness bar unless new attack simulation features are added.
